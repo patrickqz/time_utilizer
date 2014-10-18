@@ -6,10 +6,19 @@
     // app know the current login status of the person.
     // Full docs on the response object can be found in the documentation
     // for FB.getLoginStatus().
-    console.log(response);
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       testAPI();
+
+      //send response to models
+      $.ajax({
+        type: "POST",
+        url: 'login/',
+        data: {key : response.authResponse.accessToken},
+        success: function(data) {
+          console.log(data);
+        },
+      });
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Please log ' +
