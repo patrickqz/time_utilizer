@@ -10,18 +10,31 @@
   {% load staticfiles %}
   <script src="{% static "utilizer/fblogin.js" %}"></script>
 
-  <div class="fb">
-    <!--
-      Below we include the Login Button social plugin. This button uses
-      the JavaScript SDK to present a graphical Login button that triggers
-      the FB.login() function when clicked.
-    -->
-    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-    </fb:login-button>
+  <div id="header">
+    <div class="fb">
+      <!--
+        Below we include the Login Button social plugin. This button uses
+        the JavaScript SDK to present a graphical Login button that triggers
+        the FB.login() function when clicked.
+      -->
+      <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+      </fb:login-button>
+    </div>
+    <button type="button" id="addButton">+</button>
   </div>
-  <div id="status">
-  </div>
-  <button type="button" id="addButton">+</button>
+  <center>
+    I'm bored.<br>
+    Give me  
+			<select class="dropdown">
+        <option value="anything">anything </option>
+				<option value="interesting">something interesting </option>
+				<option value="productive">something productive </option>
+				<option value="relaxing">something relaxing </option>
+			</select>
+     to do.
+     <br><br>
+    <button type="button"> Go </button>
+  <center>
 
 </body>
 </html>
