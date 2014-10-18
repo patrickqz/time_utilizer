@@ -64,6 +64,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_facebook.middleware.FacebookMiddleware'
 )
 
 ROOT_URLCONF = 'time_utilizer.urls'
