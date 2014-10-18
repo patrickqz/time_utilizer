@@ -10,9 +10,25 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+
+FACEBOOK_APP_ID = '702764503137707'
+FACEBOOK_SECRET_KEY = '02bb84389b9f666f0edaac232f166acf'
+
+# Optionally set default permissions to request, e.g: ['email', 'user_about_me']
+FACEBOOK_SCOPE = []
+
+# And for local debugging, use one of the debug middlewares and set:
+# FACEBOOK_DEBUG_TOKEN = ''
+# FACEBOOK_DEBUG_UID = ''
+# FACEBOOK_DEBUG_COOKIE = ''
+# FACEBOOK_DEBUG_SIGNEDREQ = ''
+
+# Optionally throw exceptions instead of returning HTTP errors on signed request issues
+FACEBOOK_RAISE_SR_EXCEPTIONS = True
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-
+TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
@@ -36,6 +52,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_facebook',
+    'utilizer',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -46,6 +64,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_facebook.middleware.FacebookMiddleware'
 )
 
 ROOT_URLCONF = 'time_utilizer.urls'

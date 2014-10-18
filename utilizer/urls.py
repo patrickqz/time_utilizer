@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.conf.urls import url, patterns
 
 from utilizer import views
 
@@ -7,3 +7,4 @@ urlpatterns = [
     url(r'^(/add/)$', views.addLink, name='addLink'),
     url(r'^/result/(?P<tag>+\s)/(?P<timeToRead>+\d)$', views.getResult, name='getResult')
 ]
+

@@ -1,0 +1,66 @@
+body {
+  background-image: url("background.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+button{
+    background-color: #ccc;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius:6px;
+    color: #fff;
+    font-family: 'Oswald';
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border:none;
+    float:right;
+}
+
+button:hover {
+    border: none;
+    background:DarkSlateGray;
+    box-shadow: 0px 0px 1px #777;
+}
+
+.fb{
+  float: right;
+  padding: 2px 10px;
+}
+
+/* Centered opaque text */
+center { 
+  color:white;
+  opacity:0.7;
+  display:inline-block; 
+  padding:10px; 
+  font-weight:bold;
+  font-family:arial;
+  font-size:50px;
+  position:absolute;
+  left:400px;
+  top:200px;
+}
+
+
+/* drop down menu */
+
+.dropdown {
+  position:relative;
+  height:50px;
+  background:none;
+  border:none;
+  vertical-align:middle;
+}
+
+select option {
+  font-weight:bold;
+  font-family:arial;
+}
+
+/* Active state */
+
+.dropdown option:hover {
+    border-width: 0 6px 6px 6px;
+}

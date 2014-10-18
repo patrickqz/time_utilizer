@@ -1,14 +1,35 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.template import RequestContext, loader
+from django.views.decorators.csrf import csrf_exempt
 from datetime import date
 import random
+import json
 
 from .models import Article, User
 
-# Create your views here.
 def index(request):
-	
-		return render(request, "index.html")
+	template = loader.get_template('utilizer/index.html')
+	context  = RequestContext(request, {'nothing' : 2})
+	return HttpResponse(template.render(context))
+# Create your views here.
+
+@csrf_exempt
+def login(request):
+	#if request.method == "POST" and request.is_ajax():
+	#	return HttpResponse("great success")
+	json_response = {'user': 'derp'}
+	return HttpResponse(json.dumps(json_response), content_type='application/json')
+	# if request.method == 'POST':
+	# 	#redirect to results page
+	# 	return HttpResponseRedirect(reverse(views.getResult))
+	# else:
+	# 	return HttpResponse("Hello World. You are at the index.")
+
+def friends(request): 
+	if request.facebook: 
+		friends = request.facebook.graph.get_connections('me', 'friends')
+	return HttpResponse(friends)
 
 
 
