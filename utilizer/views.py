@@ -30,7 +30,7 @@ def addLink(request):
 		return HttpResponseRedirect("Thanks for submitting a link!")
 	else: 
 
-		return render(request, 'addLink.html' {'form':form})
+		return render(request, 'addLink.html')
 
 
 def getResult(request):
