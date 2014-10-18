@@ -52,11 +52,17 @@ center {
   background:none;
   border:none;
   vertical-align:middle;
+  display:inline;
+  list-style: none;
 }
 
-select option {
-  font-weight:bold;
-  font-family:arial;
+ul li {
+  display:none;
+}
+
+a {
+  font-size:45px;
+  font-color:gray;
 }
 
 /* Active state */
