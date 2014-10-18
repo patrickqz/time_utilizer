@@ -49,14 +49,46 @@ center {
 .dropdown {
   position:relative;
   height:50px;
+  width:200px;
   background:none;
   border:none;
   vertical-align:middle;
+  display:inline;
 }
 
-select option {
-  font-weight:bold;
-  font-family:arial;
+.dropdown ul {
+  display:none;
+}
+
+.dropdown:hover > ul {
+  display:block;
+  list-style: none;
+}
+
+.dropdown:after {
+  content:"";
+  clear:both;
+  display:block;
+}
+
+ul li {
+  display:none;
+  width:200px;
+  height:40px;
+  top:100%;
+  float:none;
+  position:relative;
+}
+
+ul li:hover {
+  background:gray;
+}
+
+ul li a {
+  font-size:30px;
+  color:gray;
+  text-decoration:none;
+  padding:5x;
 }
 
 /* Active state */

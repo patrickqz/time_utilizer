@@ -12,7 +12,6 @@ def index(request):
 	template = loader.get_template('utilizer/index.html')
 	context  = RequestContext(request, {'nothing' : 2})
 	return HttpResponse(template.render(context))
-# Create your views here.
 
 @csrf_exempt
 def login(request):
@@ -30,8 +29,6 @@ def friends(request):
 	if request.facebook: 
 		friends = request.facebook.graph.get_connections('me', 'friends')
 	return HttpResponse(friends)
-
-
 
 def addLink(request):
 	if request.method == 'POST':
@@ -51,14 +48,13 @@ def addLink(request):
 		return render(request, 'addLink.html')
 
 
-def getResult(request, tag, timeToRead):
-	try: 
-		a_list = Article.objects.filter(timeToRead = request.POST['time'], tag = request.POST['tag'])
-	except not a_list:
+def getResult(request):
+  a_list = Article.objects.filter(timeToRead = request.GET['time'], tag = request.GET['tag'])
+  if not a_list:
 		raise Http404
-	
-	a_choice = random.choice(a_list)
-	context = {'randomArticle': a_choice}
-	return render(request, "result.html", context)
+  else:
+    a_choice = random.choice(a_list)
+    context = {'randomArticle': a_choice}
+    return render(request, "result.html", context)
 
 
