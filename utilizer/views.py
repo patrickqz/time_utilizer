@@ -7,11 +7,8 @@ from .models import Article, User
 
 # Create your views here.
 def index(request):
-	if request.method == 'POST':
-		#redirect to results page
-		return HttpResponseRedirect(reverse(views.getResult))
-	else:
-		return HttpResponse("Hello World. You are at the index.")
+	
+		return render(request, "index.html")
 
 
 
@@ -33,7 +30,7 @@ def addLink(request):
 		return render(request, 'addLink.html')
 
 
-def getResult(request):
+def getResult(request, tag, timeToRead):
 	try: 
 		a_list = Article.objects.filter(timeToRead = request.POST['time'], tag = request.POST['tag'])
 	except not a_list:
