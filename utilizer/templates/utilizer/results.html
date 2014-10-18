@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Result</title>
+  <meta charset="UTF-8">
+  {% load staticfiles %}
+  <link rel="stylesheet" type="text/css" href="{% static "utilizer/stylings.css" %}">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+  {% load staticfiles %}
+  <script src="{% static "utilizer/fblogin.js" %}"></script>
+
+  <div id="header">
+    <div class="fb">
+      <!--
+        Below we include the Login Button social plugin. This button uses
+        the JavaScript SDK to present a graphical Login button that triggers
+        the FB.login() function when clicked.
+      -->
+      <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+      </fb:login-button>
+    </div>
+    <button type="button" id="addButton">+</button>
+  </div>
+  <center>
+    You have {{ randomArticle.timeToRead }} minutes.<br>
+     
+			You should check this out: <br>
+
+      <a href="{{ randomArticle.url }}">{{ randomArticle.title }}</a>
+      
+     <br><br>
+      <button onclick="location.reload(true)">Give me another</button>
+  
+     <form method="get" action="utilizer/">
+      <button type="submit">Go back to home</button>
+      </form>
+    <br><br>
+  <center>
+
+</body>
+</html>
