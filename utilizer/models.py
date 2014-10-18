@@ -11,7 +11,7 @@ class Article(models.Model):
 	url = models.CharField(max_length = 200)
 	date_added = models.DateTimeField('date added')
 	title = models.CharField(max_length=200)
-	user = models.ForeignKey(User)
+#	user = models.ForeignKey(User)
 
 
 	#optional

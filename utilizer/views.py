@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import RequestContext, loader
+from django.views.decorators.csrf import csrf_exempt
 from datetime import date
 import random
 import json
@@ -14,7 +15,7 @@ def index(request):
 # Create your views here.
 # def index(request):
 # 	return HttpResponse("Hello World. You are at the index.")
-
+@csrf_exempt
 def login(request):
 	#if request.method == "POST" and request.is_ajax():
 	#	return HttpResponse("great success")
@@ -25,6 +26,11 @@ def login(request):
 	# 	return HttpResponseRedirect(reverse(views.getResult))
 	# else:
 	# 	return HttpResponse("Hello World. You are at the index.")
+
+def friends(request): 
+	if request.facebook: 
+		friends = request.facebook.graph.get_connections('me', 'friends')
+	return HttpResponse(friends)
 
 
 

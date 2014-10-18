@@ -11,6 +11,7 @@
       testAPI();
 
       //send response to models
+      
       $.ajax({
         type: "POST",
         url: 'login/',
@@ -19,6 +20,7 @@
           console.log(data);
         },
       });
+  
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Please log ' +
